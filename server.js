@@ -12,10 +12,8 @@ app.use(express.static('public'));
 // else re-route to local MongoDB server
 // MongoDB finds/connects to DB if exists, creates new if not
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/social-network-api", {
-    useFindAndModify: false, 
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useCreateIndex: true,
 });
 
 //log Mongo queries

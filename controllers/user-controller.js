@@ -65,20 +65,15 @@ const userCont = {
     },
     // async
     // DELETE - Remove user by _id
-    deleteUser({ params }, res) {
-    // await
-    // thought.DeleteMany({ userId: params.id }),
-    User.findOneAndDelete({ _id: params.userId})
+    deleteUser({ params }, res) { 
+    User.findByIdAndDelete({ _id: params.userId})
     .then((dbUserData) => {
         if (!dbUserData) {
             res.status(404).json({ message: "No User found with given id! Try Again!" });
             return;
         }
-        res.json(dbUserData);
-    })
-    .catch((err) => {
-        res.status(400).json(err);
-    });
+        res.json({ message: 'That User has successfully been deleted' });
+    });    
 },
 // Post - add new friend to user's friend
 addFriend({ params, body }, res) {

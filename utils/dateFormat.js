@@ -79,7 +79,7 @@ if (dateObject.getHours > 12) {
 }
 
 // Set zero hundred hours to 12
-if (cuurrentHour === 0) {
+if (currentHour === 0) {
     currentHour = 12;
 }
 
